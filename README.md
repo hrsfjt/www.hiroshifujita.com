@@ -50,7 +50,7 @@ A Japanese-language blog documenting professional and personal development, tech
 - **149** blog posts (2017–2023), structured as `content/posts/YYYY/MM/DD/index.md`
 - **2** static pages: profile and privacy policy
 - Categories: `blog`, `pages`
-- Related posts use category (60%), keyword (20%), and date (10%) weighting
+- Related posts use category (60%), keywords (20%), and date (10%) weighting
 
 ## Theme: simple-and-fast
 
@@ -78,7 +78,7 @@ Requires a `config.prod.toml` file (not tracked in git) with production settings
 ./build.sh
 ```
 
-Cleans `public/` and `resources/`, then builds with minification enabled.
+Cleans `public/` and `resources/`, then builds with minification enabled, including draft content (`-D`).
 
 ### Convert JPG images to WebP
 
@@ -92,4 +92,4 @@ Cleans `public/` and `resources/`, then builds with minification enabled.
 BUCKET_NAME=xxxxxx ./upload.sh
 ```
 
-Syncs the `public/` directory to the specified S3 bucket.
+**Warning**: First deletes all objects in the S3 bucket (`aws s3 rm ... --recursive`), then syncs the `public/` directory to the specified bucket. This is a destructive operation.
