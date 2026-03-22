@@ -49,7 +49,7 @@ A Japanese-language blog documenting professional and personal development, tech
 
 - **149** blog posts (2017–2023), structured as `content/posts/YYYY/MM/DD/index.md`
 - **2** static pages: profile and privacy policy
-- Categories: `blog`, `page`
+- Categories: `blog`, `pages`
 - Related posts use category (60%), keyword (20%), and date (10%) weighting
 
 ## Theme: simple-and-fast
@@ -89,7 +89,7 @@ Cleans `public/` and `resources/`, then builds with minification enabled.
 ## Deploy
 
 ```bash
-BACKET_NAME=xxxxxx ./upload.sh
+BUCKET_NAME=xxxxxx ./upload.sh
 ```
 
 Syncs the `public/` directory to the specified S3 bucket.
