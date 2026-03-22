@@ -28,6 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,6 +40,12 @@ jobs:
         with:
           hugo-version: "latest"
           extended: true
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Create production config
         env:
@@ -101,9 +110,6 @@ jobs:
 
       - name: Deploy to S3
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
         run: |
           aws s3 rm "s3://${BUCKET_NAME}/" --recursive
@@ -111,9 +117,6 @@ jobs:
 
       - name: Invalidate CloudFront cache
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
         if: env.CLOUDFRONT_DISTRIBUTION_ID != ''
         run: |
