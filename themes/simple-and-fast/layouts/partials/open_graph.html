@@ -41,7 +41,7 @@
 {{ end }}{{ end }}
 
 {{- if .IsPage }}
-{{ with .Site.Social.facebook }}
+{{ with .Site.Params.socialFacebook }}
 <meta property="article:publisher" content="https://www.facebook.com/{{ . }}" />
 {{ end }}
 <meta property="article:section" content="{{ .Section }}" />
@@ -53,4 +53,4 @@
 {{- end }}
 
 {{- /* Facebook Page Admin ID for Domain Insights */}}
-{{- with .Site.Social.facebook_admin }}<meta property="fb:admins" content="{{ . }}" />{{ end }}
+{{- with .Site.Params.socialFacebookAdmin }}<meta property="fb:admins" content="{{ . }}" />{{ end }}
