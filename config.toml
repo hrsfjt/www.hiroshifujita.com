@@ -24,6 +24,8 @@ uglyurls = true
   locale = "ja_JP"
   adsense = ""
   googleAnalytics = ""
+  authorName = "hiroshifujita"
+  authorEmail = "fuchantoshu@gmail.com"
 
 [taxonomies]
   category = "categories"

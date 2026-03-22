@@ -72,6 +72,8 @@ jobs:
             locale = "ja_JP"
             adsense = "${ADSENSE}"
             googleAnalytics = "${GOOGLE_ANALYTICS}"
+            authorName = "hiroshifujita"
+            authorEmail = "fuchantoshu@gmail.com"
 
           [taxonomies]
             category = "categories"
