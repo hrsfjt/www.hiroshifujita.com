@@ -26,6 +26,9 @@ uglyurls = true
   googleAnalytics = ""
   authorName = "hiroshifujita"
   authorEmail = "fuchantoshu@gmail.com"
+  socialFacebook = "fujita.hiroshi.82"
+  socialTwitter = "shiropiritamma"
+  socialGithub = "hrsfjt"
 
 [taxonomies]
   category = "categories"
