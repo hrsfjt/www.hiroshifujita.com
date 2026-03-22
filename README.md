@@ -7,7 +7,7 @@ Personal blog website for Hiroshi Fujita, built with Hugo and hosted on AWS.
 A Japanese-language blog documenting professional and personal development, technology, business strategy, and life reflections. Posts span from 2017 to 2023.
 
 - **Site title**: HIROSHI FUJITA
-- **Language**: Japanese (ja-JP)
+- **Language**: Japanese (ja-jp)
 - **Theme**: `simple-and-fast` (custom theme)
 - **Social**: [Twitter](https://twitter.com/shiropiritamma) · [GitHub](https://github.com/hrsfjt) · Facebook
 
@@ -34,7 +34,8 @@ A Japanese-language blog documenting professional and personal development, tech
 ├── convert_webp.sh          # Batch convert JPG images to WebP
 ├── content/
 │   ├── posts/               # Blog posts, organized as YYYY/MM/DD/index.md
-│   └── page/                # Static pages (profile, privacy policy)
+│   ├── profile.md           # Static profile page
+│   └── privacy.md           # Static privacy policy page
 ├── static/
 │   ├── img/                 # Blog images and thumbnails
 │   └── favicon/             # Favicon and app icon variants for all platforms
@@ -88,7 +89,7 @@ Cleans `public/` and `resources/`, then builds with minification enabled.
 ## Deploy
 
 ```bash
-BUCKET_NAME=xxxxxx ./upload.sh
+BACKET_NAME=xxxxxx ./upload.sh
 ```
 
 Syncs the `public/` directory to the specified S3 bucket.
